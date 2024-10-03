@@ -8,14 +8,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try {
-            // Carregar a imagem
             BufferedImage imagem = ImageIO.read(Main.class.getResourceAsStream("/imagem_entrada.png"));
-            
-            // Definir cor alvo (branco) e a cor substituta (vermelho)
+
             Color corAlvo = Color.WHITE;
             Color corSubstituta = Color.RED;
 
-            // Criar o objeto FloodFill
             FloodFill floodFill = new FloodFill(imagem, corAlvo, corSubstituta);
 
                 Scanner scanner = new Scanner(System.in);

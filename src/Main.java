@@ -3,27 +3,39 @@ import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            // Carregar uma imagem a partir de um arquivo
+            // Carregar a imagem
             BufferedImage imagem = ImageIO.read(Main.class.getResourceAsStream("/imagem_entrada.png"));
             
-            // Definir a cor alvo (por exemplo, branco) e a cor substituta (por exemplo, vermelho)
+            // Definir cor alvo (branco) e a cor substituta (vermelho)
             Color corAlvo = Color.WHITE;
-            Color corSubstituta = Color.GREEN;
+            Color corSubstituta = Color.RED;
 
             // Criar o objeto FloodFill
             FloodFill floodFill = new FloodFill(imagem, corAlvo, corSubstituta);
 
-            // Executar o preenchimento com Pilha
-            //floodFill.preencherComPilha(10, 10);
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Escolha:");
+                System.out.println("1 - Pilha");
+                System.out.println("2 - Fila");
+                int escolha = scanner.nextInt();
 
-            // OU executar o preenchimento com Fila
-            floodFill.preencherComFila(500, 400);
+                if (escolha == 1) {
+                    System.out.println("Usando Pilha");
+                    floodFill.preencherComPilha(500, 400);
+                } else if (escolha == 2) {
+                    System.out.println("Usando Fila");
+                    floodFill.preencherComFila(500, 400);
+                } else {
+                    System.out.println("Escolha inválida, execute o programa denovo.");
+                    return;
+                }
 
-            // Salvar o resultado
+            // Salvar imagem
             ImageIO.write(imagem, "png", new File("imagem_saida.png"));
 
         } catch (IOException e) {

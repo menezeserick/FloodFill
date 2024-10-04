@@ -32,7 +32,6 @@ public class Main {
                     return;
                 }
 
-            // Salvar imagem
             ImageIO.write(imagem, "png", new File("imagem_saida.png"));
 
         } catch (IOException e) {

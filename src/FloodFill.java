@@ -25,7 +25,6 @@ public class FloodFill {
             if (ehValido(px, py) && imagem.getRGB(px, py) == corAlvo) {
                 imagem.setRGB(px, py, corSubstituta);
 
-                // Empilha os 4 vizinhos laterais
                 pilha.empilhar(new Pixel(px + 1, py));
                 pilha.empilhar(new Pixel(px - 1, py));
                 pilha.empilhar(new Pixel(px, py + 1));
@@ -48,7 +47,6 @@ public class FloodFill {
             if (ehValido(px, py) && imagem.getRGB(px, py) == corAlvo) {
                 imagem.setRGB(px, py, corSubstituta);
 
-                // Enfileira os 4 vizinhos laterais
                 fila.enfileirar(new Pixel(px + 1, py));
                 fila.enfileirar(new Pixel(px - 1, py));
                 fila.enfileirar(new Pixel(px, py + 1));
